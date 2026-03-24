@@ -31,3 +31,15 @@ function calculateDays(){
     document.getElementById("output").innerHTML = error.message
 }
 }
+
+//clase has-result si resultado no es mensaje de error
+ const origCalculate = window.calculateDays;
+        if (typeof origCalculate === 'function') {
+            window.calculateDays = function () {
+                origCalculate();
+                const out = document.getElementById('output');
+                if (out && out.textContent.trim() && !out.textContent.includes('aquí')) {
+                    out.classList.add('has-result');
+                }
+            };
+        }

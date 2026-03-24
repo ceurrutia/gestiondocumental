@@ -1,40 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" data-bs-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión Documental</title>
-    
-    <link rel="stylesheet" href="css/style.css">
-    
+
+    <!-- Bootswatch Slate -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/flatly/bootstrap.min.css">
+    <!-- Flatpickr calendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.mis.css"> -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-    <h1> Herramientas de gestión </h1>
-    <h2> Calculador entre dos fechas</h2>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="#">📁 Gestión Documental</a>
+        </div>
+    </nav>
 
-    <p>Obtén la diferencia en años, meses y días entre dos fechas</p>
-
-
+    <!-- Header -->
     <div class="container">
+        <div class="app-header">
+            <h1>Herramienta de gestión</h1>
+            <h4>Calculador entre dos fechas</h4>
+        </div>
+    </div>
 
-        <label> Ingrese fecha 1:
-        
-    <input type="date" id="day1" ></label>
-    
-    <label>Ingrese fecha 2:
-       
-        <input type="date" id="day2" ></label>
-        
+    <!-- Main content -->
+    <div class="container main-content">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-9">
 
-    <button onclick="calculateDays()"> Obtener la diferencia </button>
-    
+                <div class="card calc-card shadow-sm">
+                    <div class="card-body p-4">
 
-</div>
-<p id="output"></p>
-    
-    
+                        <p class="text-secondary mb-4">
+                            Obtené la diferencia en años, meses y días entre dos fechas.
+                        </p>
+
+                        <div class="mb-3">
+                            <label for="day1" class="form-label">Fecha 1</label>
+                            <div class="date-input-wrapper">
+                                <input type="text" id="day1" class="form-control" placeholder="Seleccioná una fecha"
+                                    readonly>
+                                <span class="cal-icon">📅</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="day2" class="form-label">Fecha 2</label>
+                            <div class="date-input-wrapper">
+                                <input type="text" id="day2" class="form-control" placeholder="Seleccioná una fecha"
+                                    readonly>
+                                <span class="cal-icon">📅</span>
+                            </div>
+                        </div>
+
+                        <div class="d-grid mb-4">
+                            <button class="btn btn-info" onclick="calculateDays()">
+                                Obtener la diferencia
+                            </button>
+                        </div>
+
+                        <div class="result-box" id="output">
+                            <span class="text-secondary">El resultado aparecerá aquí…</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 Urrutia
+    </footer>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+
+    <script>
+        // Inicializar pickers en español
+        flatpickr("#day1", {
+            locale: "es",
+            dateFormat: "Y-m-d",
+            disableMobile: true
+        });
+        flatpickr("#day2", {
+            locale: "es",
+            dateFormat: "Y-m-d",
+            disableMobile: true
+        });
+    </script>
+
+    <script src="scripts/main.js"></script>
+
 </body>
-<script src="scripts/main.js"></script>
 
 </html>
